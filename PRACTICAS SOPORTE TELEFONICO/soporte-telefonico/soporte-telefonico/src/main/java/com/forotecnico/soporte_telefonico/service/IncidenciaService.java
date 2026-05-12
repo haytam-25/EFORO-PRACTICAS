@@ -24,4 +24,15 @@ public class IncidenciaService {
     public void eliminar(Long id) {
         repository.deleteById(id);
     }
+    
+    public Incidencia actualizar(Long id, Incidencia nueva) {
+    Incidencia existente = repository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Incidencia no encontrada"));
+    existente.setAlumno(nueva.getAlumno());
+    existente.setDescripcion(nueva.getDescripcion());
+    existente.setAtendidaPor(nueva.getAtendidaPor());
+    existente.setEstado(nueva.getEstado());
+    existente.setPrioridad(nueva.getPrioridad());
+    return repository.save(existente);
+}
 }

@@ -29,4 +29,9 @@ public class IncidenciaController {
     public void eliminar(@PathVariable Long id) {
         service.eliminar(id);
     }
+
+    @PutMapping("/{id}")
+    public Incidencia actualizar(@PathVariable Long id, @RequestBody Incidencia incidencia) {
+    return service.actualizar(id, incidencia);
+}
 }
