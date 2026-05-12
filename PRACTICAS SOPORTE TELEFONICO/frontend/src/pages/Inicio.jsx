@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import Reportes from './Reportes'
 import Equipo from './Equipo'
+import CalendarioSemanal from './CalendarioSemanal'
 
 const TURNOS = [
   '09:00 - 10:00',
@@ -137,9 +138,7 @@ function Inicio() {
         <div className="flex-1">
           {pagina === 'Inicio'    && <PaginaInicio />}
           {pagina === 'Reportes'  && <Reportes />}
-          {pagina === 'Calendario Semanal' && (
-            <div className="p-8 text-gray-400">Calendario Semanal — próximamente</div>
-          )}
+          {pagina === 'Calendario Semanal' && <CalendarioSemanal />}
           {pagina === 'Equipo' && <Equipo />}
           {pagina === 'Configuración' && (
             <div className="p-8 text-gray-400">Configuración — próximamente</div>
