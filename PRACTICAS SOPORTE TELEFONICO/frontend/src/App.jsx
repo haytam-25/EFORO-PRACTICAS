@@ -3,11 +3,11 @@ import Login from './pages/Login'
 import Inicio from './pages/Inicio'
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [usuario, setUsuario] = useState(null)
 
-  return loggedIn 
-    ? <Inicio /> 
-    : <Login onLogin={() => setLoggedIn(true)} />
+  return usuario
+    ? <Inicio usuario={usuario} onLogout={() => setUsuario(null)} />
+    : <Login onLogin={(u) => setUsuario(u)} />
 }
 
 export default App
