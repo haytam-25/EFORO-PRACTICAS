@@ -111,7 +111,7 @@ function PaginaInicio() {
   )
 }
 
-function Inicio() {
+function Inicio({ usuario, onLogout }) {
   const [pagina, setPagina] = useState('Inicio')
 
   return (
@@ -124,12 +124,20 @@ function Inicio() {
         <div className="bg-white border-b px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-gray-400 text-xl cursor-pointer">☰</span>
-            <span className="text-gray-700 font-medium">Bienvenido, Equipo de Soporte 👋</span>
+            <span className="text-gray-700 font-medium">Bienvenido, {usuario.nombre} 👋</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-gray-400 text-xl">🔔</span>
-            <div className="w-9 h-9 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
-              JB
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                {usuario.nombre.charAt(0)}
+              </div>
+              <button
+                onClick={onLogout}
+                className="text-sm text-gray-500 hover:text-red-500 transition"
+              >
+                Cerrar sesión
+              </button>
             </div>
           </div>
         </div>
